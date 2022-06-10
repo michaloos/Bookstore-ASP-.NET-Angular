@@ -8,13 +8,11 @@ import { AuthorService } from '../author.service';
   styleUrls: ['./detail-book.component.css']
 })
 export class DetailBookComponent implements OnInit {
-  public authorName: any;
+  public authorName: object;
 
   constructor(public dialogRef: MatDialogRef<DetailBookComponent>,  @Inject(MAT_DIALOG_DATA) public data: any,
   public authorService: AuthorService) {
-    authorService.getAuthor(data.autorId).subscribe(result => {
-      this.authorName = result;
-    })
+    this.authorName = data.authorData;
    }
 
   ngOnInit() {

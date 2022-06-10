@@ -1,9 +1,9 @@
 <h2 mat-dialog-title>Details of specific book</h2>
 
 <mat-dialog-content *ngIf="data">
-    <p>Title: {{data.title}}</p>
-    <p>Year of publish: {{data.year_of_publish}}</p>
-    <p>ISBN: {{data.isbn}}</p>
+    <p>Title: {{data.bookData.title}}</p>
+    <p>Year of publish: {{data.bookData.year_of_publish}}</p>
+    <p>ISBN: {{data.bookData.isbn}}</p>
     <p>Author: {{authorName.fisrtName}} {{authorName.lastName}}</p>
 </mat-dialog-content>
     
