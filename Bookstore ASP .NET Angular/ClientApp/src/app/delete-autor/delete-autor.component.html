@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Are you sure you want to delete this author?</h2>
+
+<mat-dialog-content *ngIf="data">
+    <p>First Name: {{data.authorData.fisrtName}}</p>
+    <p>Last Name: {{data.authorData.lastName}}</p>
+    <p>Country: {{data.authorData.country}}</p>
+    <p *ngIf="!ableToDelete" style="font-size: 15px; color: red;">Cant delete this author becouse of books he is assigned to!</p>
+</mat-dialog-content>
+    
+<mat-dialog-actions>
+    <button class="btn btn-danger" style="margin: 10px;" (click)="delete()" [disabled]="!ableToDelete">Delete</button>
+    <button class="btn btn-primary" style="margin: 10px;" (click)="close()">Cancel</button>
+</mat-dialog-actions>
