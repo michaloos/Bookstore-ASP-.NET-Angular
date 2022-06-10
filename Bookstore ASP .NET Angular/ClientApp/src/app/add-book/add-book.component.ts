@@ -17,6 +17,7 @@ export class AddBookComponent{
 
     authorService.getAuthors().subscribe(result => {
       this.authors = result;
+      console.log(this.authors);
     }, error => console.error(error));
 
     this.form = new FormGroup({
