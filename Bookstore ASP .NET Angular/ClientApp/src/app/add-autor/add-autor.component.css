@@ -1,0 +1,14 @@
+.btn{
+    align-content: center;
+    margin: 10px;
+}
+
+.widthFit{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border-style: hidden;
+    padding: 10px;
+    background-color: azure;
+}

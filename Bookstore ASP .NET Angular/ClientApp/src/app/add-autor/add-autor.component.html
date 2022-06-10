@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Add new author.</h2>
+    <div mat-dialog-content class="contentBox" [formGroup]="form">
+        <div mat-form-field>
+           <input matInput class="widthFit" placeholder="First Name" formControlName="fisrtName">
+        </div>
+        <div mat-form-field>
+            <input matInput class="widthFit" placeholder="Last Name" formControlName="lastName">
+        </div>
+        <div mat-form-field>
+            <input matInput class="widthFit" placeholder="country" formControlName="country" >
+        </div>
+    </div>
+ 
+<mat-dialog-actions>
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">Add</button>
+    <button class="btn btn-danger" (click)="close()">Cancel</button>
+</mat-dialog-actions>
