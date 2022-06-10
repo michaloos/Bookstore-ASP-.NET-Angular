@@ -1,1 +1,39 @@
-<p>books works!</p>
+<h1 id="tableLabel">Books</h1>
+
+<p *ngIf="!books"><em>Loading...</em></p>
+
+<div>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortAZ()">Sort title A->Z</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortZA()">Sort title Z->A</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortDateUp()">Sort date up</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortDateDown()">Sort date down</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="cancelActions()">Cancel sort or filtr</button>
+</div>
+
+<div class="container">
+  <input matInput placeholder="Search here..." (keyup)="filter($event.target.value)">
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="books">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Year of publish</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.year_of_publish }}</td>
+      <td><button class="btn btn-danger" (click)="openDialogDelete(book)">Delete</button></td>
+      <td><button class="btn btn-info" (click)="openDialogDetails(book)">Details</button></td>
+      <td><button class="btn btn-warning" (click)="openDialogEdit(book)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+    <button class="btn btn-primary" (click)="openDialogAddBook()">Add new book</button>
+</div>

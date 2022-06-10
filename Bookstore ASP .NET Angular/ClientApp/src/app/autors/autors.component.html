@@ -1,1 +1,37 @@
-<p>autors works!</p>
+<h1 id="tableLabel">Authors</h1>
+
+<p *ngIf="!authors"><em>Loading...</em></p>
+
+<div>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortAZFirstName()">Sort first name A->Z</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortZAFirstName()">Sort first name Z->A</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortAZLastName()">Sort last name A->Z</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="sortZALastName()">Sort last name Z->A</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="cancelActions()">Cancel sort or filtr</button>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="authors">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authors">
+      <td>{{ author.fisrtName }}</td>
+      <td>{{ author.lastName }}</td>
+      <td>{{ author.country }}</td>
+      <td><button class="btn btn-danger" (click)="openDialogDelete(author)">Delete</button></td>
+      <td><button class="btn btn-info" (click)="openDialogDetails(author)">Details</button></td>
+      <td><button class="btn btn-warning" (click)="openDialogEdit(author)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+<div>
+    <button class="btn btn-primary" (click)="openDialogAddAuthor()">Add new author</button>
+</div>
