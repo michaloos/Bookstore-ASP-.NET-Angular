@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Details of specific author.</h2>
+
+<mat-dialog-content *ngIf="data">
+    <p>First Name: {{data.authorData.fisrtName}}</p>
+    <p>Last Name: {{data.authorData.lastName}}</p>
+    <p>Country: {{data.authorData.country}}</p>
+    <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Year of publish</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of data.booksData">
+            <td>{{ book.title }}</td>
+            <td>{{ book.year_of_publish }}</td>
+          </tr>
+        </tbody>
+      </table>
+</mat-dialog-content>
+    
+<mat-dialog-actions>
+    <button class="btn btn-primary" style="margin: 10px;" (click)="close()">Close</button>
+</mat-dialog-actions>
