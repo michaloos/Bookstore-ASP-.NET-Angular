@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BooksComponent } from './books/books.component';
 import { AutorsComponent } from './autors/autors.component';
 import { AddAutorComponent } from './add-autor/add-autor.component';
@@ -28,8 +26,6 @@ import { MatCommonModule, MatButtonModule } from '@angular/material';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     BooksComponent,
     AutorsComponent,
     AddAutorComponent,
@@ -51,8 +47,6 @@ import { MatCommonModule, MatButtonModule } from '@angular/material';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'books', component: BooksComponent},
       { path: 'autors', component: AutorsComponent},
       { path: 'add-autor', component: AddAutorComponent},
