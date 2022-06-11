@@ -4,10 +4,11 @@
            <input matInput class="widthFit" placeholder="Title" formControlName="title">
         </div>
         <div mat-form-field>
-            <input matInput class="widthFit" placeholder="Year of publish" formControlName="year_of_publish" type="number">
+            <input matInput class="widthFit" placeholder="Year of publish" formControlName="year_of_publish" 
+            type="number" min="0">
         </div>
         <div mat-form-field>
-            <input matInput class="widthFit" placeholder="ISBN" formControlName="isbn" >
+            <input matInput class="widthFit" placeholder="ISBN" formControlName="isbn">
         </div>
         <div mat-form-field>
             <select formControlName="autorId" id="autorId" class="form-control widthFit">
