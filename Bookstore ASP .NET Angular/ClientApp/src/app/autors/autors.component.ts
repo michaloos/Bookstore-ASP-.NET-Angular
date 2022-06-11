@@ -106,15 +106,58 @@ export class AutorsComponent implements OnInit{
     this.authors = this.authors.sort((a,b) => b.lastName.localeCompare(a.lastName));
   }
 
+  public inputFirstName: string;
+  public inputLastName: string;
+  public inputCountry: string;
+
   cancelActions(){
     this.getAllAuthors();
+    this.inputFirstName = '';
+    this.inputLastName = '';
+    this.inputCountry = '';
   }
 
-  filter(data: string){
-    //this.dataSource.filter = data.trim().toLowerCase();
-    
+  filterFirstName(data: string, authors){
+    let result: any;
+      result = authors.filter((author) =>{
+      return author.fisrtName.toLowerCase().includes(data.toLowerCase());
+    });
+    return result;
+  
   }
 
+  filterLastName(data: string, authors){
+    let result: any;
+    result = authors.filter((author) =>{
+      return author.lastName.toLowerCase().includes(data.toLowerCase());
+    });
+    return result;   
+  }
+
+  filterCountry(data: string, authors){
+    let result: any;
+      result = authors.filter((author) =>{
+      return author.country.toLowerCase().includes(data.toLowerCase());
+    });
+    return result;
+  }
+
+  filtr(){
+    let result: any;
+    this.authorService.getAuthors().subscribe(authors =>{
+      result = authors;
+      if(this.inputFirstName != undefined){
+        result = this.filterFirstName(this.inputFirstName,result);
+      }
+      if(this.inputLastName != undefined){
+        result = this.filterLastName(this.inputLastName,result);
+      }
+      if(this.inputCountry != undefined){
+        result = this.filterCountry(this.inputCountry,result);
+      }
+      this.authors = result;
+    });    
+  }
 }
 
 export interface Authors {

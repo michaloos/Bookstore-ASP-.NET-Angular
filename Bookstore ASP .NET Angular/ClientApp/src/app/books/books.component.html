@@ -12,7 +12,7 @@
 
 <div class="container">
   <input matInput style="margin: 10px;" placeholder="Search by title here..." (keyup)="filterTitle($event.target.value)">
-  <input matInput style="margin: 10px;" placeholder="Search by date here..." (keyup)="filterDate($event.target.value)">
+  <input matInput style="margin: 10px;" type="number" placeholder="Search by date here..." (keyup)="filterDate($event.target.value)">
 </div>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="books">

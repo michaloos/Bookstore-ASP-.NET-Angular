@@ -10,6 +10,13 @@
   <button class="btn btn-primary" style="margin: 10px;" (click)="cancelActions()">Cancel sort or filtr</button>
 </div>
 
+<div class="container">
+  <input [(ngModel)]="inputFirstName" matInput style="margin: 10px; width: 20%;" placeholder="Search by first name here...">
+  <input [(ngModel)]="inputLastName" matInput style="margin: 10px; width: 20%;" placeholder="Search by last name here...">
+  <input [(ngModel)]="inputCountry" matInput style="margin: 10px; width: 20%;" placeholder="Search by country here...">
+  <button class="btn btn-primary" (click)="filtr()">Filtr</button>
+</div>
+
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="authors">
   <thead>
     <tr>

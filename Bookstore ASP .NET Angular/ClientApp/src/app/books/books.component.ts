@@ -114,7 +114,6 @@ export class BooksComponent implements OnInit {
         return book.title.toLowerCase().includes(data.toLowerCase());
       });
       this.books = result;
-      console.log(result);
     });  
   }
 
