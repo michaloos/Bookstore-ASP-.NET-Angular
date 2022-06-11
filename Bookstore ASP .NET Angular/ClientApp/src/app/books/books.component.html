@@ -7,11 +7,12 @@
   <button class="btn btn-primary" style="margin: 10px;" (click)="sortZA()">Sort title Z->A</button>
   <button class="btn btn-primary" style="margin: 10px;" (click)="sortDateUp()">Sort date up</button>
   <button class="btn btn-primary" style="margin: 10px;" (click)="sortDateDown()">Sort date down</button>
-  <button class="btn btn-primary" style="margin: 10px;" (click)="cancelActions()">Cancel sort or filtr</button>
+  <button class="btn btn-primary" style="margin: 10px;" (click)="cancelActions()">Cancel sort</button>
 </div>
 
 <div class="container">
-  <input matInput placeholder="Search here..." (keyup)="filter($event.target.value)">
+  <input matInput style="margin: 10px;" placeholder="Search by title here..." (keyup)="filterTitle($event.target.value)">
+  <input matInput style="margin: 10px;" placeholder="Search by date here..." (keyup)="filterDate($event.target.value)">
 </div>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="books">

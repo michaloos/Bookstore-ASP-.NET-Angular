@@ -16,7 +16,6 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class BooksComponent implements OnInit {
   public books: Books[];
-  public dataSource: any;
 
   constructor(private matDialog: MatDialog, public bookService: BookService, public authorService: AuthorService) {
     this.getAllBooks();
@@ -25,7 +24,6 @@ export class BooksComponent implements OnInit {
   getAllBooks(){
     this.bookService.getBooks().subscribe(result => {
       this.books = result;
-      this.dataSource = new MatTableDataSource(this.books); 
     }, error => console.error(error));
   }
 
@@ -109,9 +107,25 @@ export class BooksComponent implements OnInit {
     this.getAllBooks();
   }
 
-  filter(data: string){
-    this.dataSource.filter = data.trim().toLowerCase();
-    
+  filterTitle(data: string){
+    let result: any;
+    this.bookService.getBooks().subscribe(books =>{
+        result = books.filter((book) =>{
+        return book.title.toLowerCase().includes(data.toLowerCase());
+      });
+      this.books = result;
+      console.log(result);
+    });  
+  }
+
+  filterDate(data: number){
+    let result: any;
+    this.bookService.getBooks().subscribe(books =>{
+        result = books.filter((book) =>{
+        return book.year_of_publish.toString().includes(data.toString());
+      });
+      this.books = result;
+    });  
   }
 }
 
